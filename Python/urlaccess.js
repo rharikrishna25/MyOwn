@@ -1,7 +1,9 @@
 var sys = require('sys');
 http = require("http");
-http.createServer(function(request,response){
+var server = http.createServer(function(request,response){
 	response.writeHeader(200,{"Content-Type":"text/plain"})
 	response.write('Hari yeah')
 	response.end()
-}).listen(8080);
+});
+
+server.listen(12345);
