@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src='../js/angular.min.js'></script>
+	<script type="text/javascript" src="../services/DataService.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+
+</head>
+<body ng-app="main">
+<div ng-controller="FormController">
+	<form name="form"  accept-charset="utf-8">
+		Name : <input ng-model='user.fname' name="firstname"/><br/>
+		Last Name : <input ng-model='user.lastname' name="lastname" />
+		<br />
+		
+		<input type="radio" ng-model="user.gender" value="M" />Male
+	    <input type="radio" ng-model="user.gender" value="F" />Female
+	    <br />
+	    
+		<button ng-click='save()'>save</button><br>
+		<button ng-click='reset()'>reset</button><br>
+		</form>
+	
+	<hr/>
+
+	<table style="border: 1px solid grey;padding: 15px;">	
+			<th ng-repeat="x in header">{{x}}</th>	
+			
+			<tr ng-repeat="x in users" | orderBy : 'secondname' >	
+			<td>{{x.fname | uppercase}}</td>
+			<td>{{x.lastname | customFilter: 3}}</td>
+			<td> {{x.gender | genderFilter}} </td>
+			<td> <span style="cursor:pointer" ng-click="deleteIndex($index)">X</span>	</td>							</tr>
+	</table>
+	<button ng-click='deleteAll()'>Delete All</button><br>
+</div>	
+
+
+</body>
+</html>

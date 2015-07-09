@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='firstAngular'>
+<head>
+	<title></title>
+	<script type="text/javascript" src='../js/angular.min.js'></script>
+	<script type="text/javascript" src='../js/app2.js'></script>
+
+</head>
+<body>
+<div ng-controller="myController">
+	
+		<input ng-model='search' name="Search"/><br/>					
+	<hr/>
+
+	<table ng-if='search.length>2' style="border: 1px solid grey;padding: 15px;">	
+			
+			
+			<tr ng-repeat="x in users| customFilter  : search" >
+				<td>{{x}}</td>	
+			</tr>
+	</table>	
+</div>	
+
+
+</body>
+</html>
