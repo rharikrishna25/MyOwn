@@ -5,6 +5,10 @@ main.controller('myController', function ($scope) {
   
  
   $scope.users = [{no:'1',qn:'who is hari',ans:'Hari is a student'},{no:'2',qn:'who is sathish',ans:'hari is'},{no:'3',qn:'who is hari da',ans:'jjj'}];
+
+  $scope.highlight = function(qn,search){
+    return qn;
+  };
 });
 
 main.filter('customFilter',function(){
@@ -18,11 +22,14 @@ main.filter('customFilter',function(){
         ans.push(user.qn);
       }      
     });
+    var item  = 'Most relevant results';
     if(names.length){
-      names.splice(0,0,'Relevant Questions');
+      
+      names.splice(0,0,item);
     }
+    var item2 = 'Other relevant results';
     if(ans.length){
-      ans.splice(0,0,'Relevant Answers');
+      ans.splice(0,0,item2);
     }
     
     return names.concat(ans);

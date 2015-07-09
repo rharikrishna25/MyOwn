@@ -11,14 +11,25 @@
 	
 		<input ng-model='search' name="Search"/><br/>					
 	<hr/>
-
+<!-- 
 	<table ng-if='search.length>2' style="border: 1px solid grey;padding: 15px;">	
 			
 			
 			<tr ng-repeat="x in users| customFilter  : search" >
 				<td>{{x}}</td>	
 			</tr>
-	</table>	
+	</table> -->	
+	<div>
+    <ul class="list" ng-if='search.length>2'>
+          <li ng-repeat="item in users | customFilter : search" >
+          
+         
+            <span>{{item}}</span>
+       
+         
+          </li>
+    </ul>
+  </div>
 </div>	
 
 
